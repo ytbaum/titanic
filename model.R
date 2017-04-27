@@ -5,7 +5,7 @@ submission.table <- read.csv("gender_submission.csv")
 
 # randomly generate a prediction for each passenger we have to predict for
 num.predictions <- nrow(submission.table)
-predictions <- rbinom(num.predictions, 1, 0.5)
+predictions <- rbinom(num.predictions, 1, 0.2)
 submission.table$Survived <- predictions
 
 write.csv(submission.table, "submission.csv")
