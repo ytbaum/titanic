@@ -9,4 +9,4 @@ num.predictions <- nrow(submission.table)
 predictions <- rbinom(num.predictions, 1, 0.8)
 submission.table$Survived <- predictions
 
-write.csv(submission.table, "submission.csv")
+write.csv(submission.table, "submission.csv", row.names = FALSE, quote = FALSE)
