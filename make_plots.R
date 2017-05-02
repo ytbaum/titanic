@@ -23,6 +23,7 @@ sub <- train %>% as_tibble %>%
             Total = n()) %>%
   mutate(survProb = Survivors/Total)
 
+# This is a plot
 ggplot(sub) +
   geom_col(aes(x = as.factor(Pclass), y = survProb, fill = Sex),
            position=position_dodge()) +
