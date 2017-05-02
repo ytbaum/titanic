@@ -25,4 +25,5 @@ sub <- train %>% as_tibble %>%
 
 ggplot(sub) +
   geom_col(aes(x = as.factor(Pclass), y = survProb, fill = Sex),
-           position=position_dodge())
+           position=position_dodge()) +
+  ggtitle("Awesome plot")
