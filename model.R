@@ -7,7 +7,7 @@ submission.table <- read.csv("gender_submission.csv")
 
 
 # Replacing random prediction for a logistic model
-logit.model <- glm(Survived ~ Pclass*Sex*Age*SibSp*Parch+Fare+Embarked,data=train,family=binomial) # That was number of interactions I could pull up before crashing R.
+logit.model <- glm(Survived ~ Pclass*Sex*Age*SibSp*Parch+Fare+Embarked,data=train,family=binomial) # That was the maximum number of interactions I could pull up before crashing R.
 logit.simplified <- step(logit.model) # simplifying the model using stepwise model selection
 
 #Testing the model
