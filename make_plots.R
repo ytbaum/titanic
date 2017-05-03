@@ -5,6 +5,7 @@ submission.table <- read.csv("gender_submission.csv")
 
 # load packages
 library(tidyverse)
+library(caret)
 
 ##########
 # data exploration - visualize data
@@ -26,3 +27,14 @@ sub <- train %>% as_tibble %>%
 ggplot(sub) +
   geom_col(aes(x = as.factor(Pclass), y = survProb, fill = Sex),
            position=position_dodge())
+
+ggplot(train) +
+  geom_point(aes(x = Fare, y = Age, color = as.factor(Survived), shape = Sex)) +
+  xlim(c(0, 300))
+
+scales <- list(x=list(relation="free"), y=list(relation="free"))
+vars <- train %>% select(Pclass, Age, Parch, Fare)
+featurePlot(y = as.factor(train$Survived), x = vars, plot = "density", scales = scales)
+#pink = survived, blue = died
+#many babies survived, families survived more than single individuals,
+#the lowest class/lowest fares died most, first class survived more
